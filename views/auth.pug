@@ -1,0 +1,38 @@
+extends layout/page
+
+block content
+  form.container.small(action="/delegate" method="POST")
+
+    // TODO: todo, use application name here 
+    h2.full Grant Access
+
+    p.full The application would to do the following:
+
+    // TODO: translate scope to human readable labels
+    ul.full
+      li 1
+      li 2 
+      li 3 
+
+    // TODO: pass variable values to input
+    input(type="hidden" name="client_id" value="")
+    input(type="hidden" name="secret" value="")
+    input(type="hidden" name="csrf_token" value="")
+    input(type="hidden" name="pkce" value="")
+    input(type="hidden" name="redirect" value="")
+
+    // if user has session, allow 'yes' 'no'
+    if user
+      input(type="submit" value="Yes")
+      input(type="submit" value="No")
+
+    else
+      div.field-wrapper.full
+        input(type="text" name="username" value="")
+      div.field-wrapper.full
+        input(type="password" name="password" value="")
+
+      div.field-wrapper.half
+        input(type="submit" value="Yes")
+      div.field-wrapper.half
+        input(type="submit" value="No")

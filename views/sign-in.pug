@@ -1,0 +1,20 @@
+extends layout/page
+block content
+  form.container.small(action="/delegate" method="POST")
+
+    h2.full Sign In 
+
+    input(type="hidden" name="csrf_token" value="")
+    if next != null
+      input(type="hidden" name="next" value=next)
+
+    div.field-wrapper.full
+      label(for="username") Username
+      input(type="text" name="username" value="")
+
+    div.field-wrapper.full
+      label(for="password") Password
+      input(type="password" name="password" value="")
+
+    div.field-wrapper.half
+      input(type="submit" value="Sign In")
